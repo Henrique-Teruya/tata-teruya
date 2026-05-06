@@ -144,6 +144,12 @@ button{font-family:inherit;cursor:pointer;border:none;outline:none}
 .btn-pix:hover{background:#fff;transform:scale(1.05)}
 .btn-pix:active{transform:scale(.97)}
 
+/* lookbook cta */
+.lookbook-cta{margin-top:var(--space-xl);display:flex;justify-content:center}
+.btn-secondary{display:inline-flex;align-items:center;gap:var(--space-sm);background:transparent;color:var(--text-primary);border:1px solid var(--text-primary);font-size:.875rem;font-weight:600;padding:.85rem 2rem;border-radius:var(--radius-xl);text-decoration:none;transition:background .3s,color .3s,transform .2s var(--ease-bounce)}
+.btn-secondary:hover{background:var(--text-primary);color:#fff;transform:translateY(-2px)}
+.btn-secondary:active{transform:scale(.98)}
+
 /* ===== REVEAL ANIMATION ===== */
 .reveal-on-scroll{opacity:0;transform:translateY(2rem);transition:opacity .7s var(--ease-smooth),transform .7s var(--ease-smooth)}
 .reveal-on-scroll.revealed{opacity:1;transform:translateY(0)}
