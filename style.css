@@ -685,7 +685,7 @@ button{font-family:inherit;cursor:pointer;border:none;outline:none}
 .modal-instruction a{color:var(--success);font-weight:600;text-decoration:underline;text-underline-offset:2px}
 
 /* ===== FOOTER ===== */
-.site-footer{background:var(--bg-footer);color:var(--text-light);padding:var(--space-2xl) 0 var(--space-lg)}
+.site-footer{background:var(--bg-footer);color:var(--text-light);padding:var(--space-2xl) 0 var(--space-lg);margin-top:var(--space-3xl)}
 .footer-inner{display:grid;grid-template-columns:1fr;gap:var(--space-xl);margin-bottom:var(--space-xl)}
 .footer-brand .logo-text{color:var(--text-light);margin-bottom:var(--space-sm)}
 .footer-brand p{font-size:.875rem;color:rgba(245,240,235,.6);max-width:20rem;line-height:1.6}
@@ -707,12 +707,13 @@ button{font-family:inherit;cursor:pointer;border:none;outline:none}
 .toast.show{transform:translateY(0);opacity:1;visibility:visible}
 
 /* ===== SPA VIEW SYSTEM ===== */
-#app-main { padding-top: 80px; min-height: 80vh; }
+#app-main { padding-top: 80px; min-height: 80vh; padding-bottom: var(--space-3xl); }
 
 .view {
   display: none;
   opacity: 0;
   transform: translateY(1rem);
+  padding-bottom: var(--space-3xl);
   transition: opacity 0.35s var(--ease-smooth), transform 0.35s var(--ease-smooth);
 }
 
