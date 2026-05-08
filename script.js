@@ -43,7 +43,7 @@
 
     bindEvents();
     initScrollReveal();
-    initHamburgerDark();
+    initCarousel();
 
     // Initial header state
     if (header && !heroSection) {
@@ -79,9 +79,8 @@
     window.addEventListener('scroll', function () {
       if (header) {
         if (heroSection) {
-          header.classList.toggle('scrolled', window.scrollY > 10);
-          var heroBottom = heroSection.getBoundingClientRect().bottom;
-          header.classList.toggle('hero-visible', heroBottom > 80);
+          const heroBottom = heroSection.getBoundingClientRect().bottom;
+          header.classList.toggle('scrolled', heroBottom <= 60);
         } else {
           header.classList.add('scrolled');
         }
@@ -155,6 +154,107 @@
     elements.forEach(function (el) { observer.observe(el); });
   }
 
+  // ---------- CAROUSEL ----------
+  function initCarousel() {
+    const carousel = document.querySelector('.lookbook-carousel');
+    if (!carousel) return;
+
+    const track = carousel.querySelector('.carousel-track');
+    const slides = Array.from(track.children);
+    const nextButton = carousel.querySelector('.carousel-next');
+    const prevButton = carousel.querySelector('.carousel-prev');
+    const dotsNav = carousel.querySelector('.carousel-dots');
+
+    if (!track || !nextButton || !prevButton || !dotsNav) return;
+
+    let currentIndex = 0;
+    let interval;
+
+    // Create dots
+    slides.forEach((_, index) => {
+      const dot = document.createElement('button');
+      dot.classList.add('carousel-dot');
+      if (index === 0) dot.classList.add('active');
+      dot.setAttribute('aria-label', `Ver slide ${index + 1}`);
+      dotsNav.appendChild(dot);
+    });
+
+    const dots = Array.from(dotsNav.children);
+
+    const updateCarousel = (index) => {
+      track.style.transform = `translateX(-${index * 100}%)`;
+      dots.forEach(dot => dot.classList.remove('active'));
+      dots[index].classList.add('active');
+      currentIndex = index;
+    };
+
+    const nextSlide = () => {
+      const nextIndex = (currentIndex + 1) % slides.length;
+      updateCarousel(nextIndex);
+    };
+
+    const prevSlide = () => {
+      const prevIndex = (currentIndex - 1 + slides.length) % slides.length;
+      updateCarousel(prevIndex);
+    };
+
+    nextButton.addEventListener('click', () => {
+      nextSlide();
+      resetInterval();
+    });
+
+    prevButton.addEventListener('click', () => {
+      prevSlide();
+      resetInterval();
+    });
+
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => {
+        updateCarousel(index);
+        resetInterval();
+      });
+    });
+
+    function startInterval() {
+      interval = setInterval(nextSlide, 5000);
+    }
+
+    function resetInterval() {
+      clearInterval(interval);
+      startInterval();
+    }
+
+    startInterval();
+
+    carousel.addEventListener('mouseenter', () => clearInterval(interval));
+    carousel.addEventListener('mouseleave', startInterval);
+
+    // Touch support (simple swipe)
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    carousel.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    carousel.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      handleSwipe();
+    }, { passive: true });
+
+    function handleSwipe() {
+      const swipeThreshold = 50;
+      if (touchEndX < touchStartX - swipeThreshold) {
+        nextSlide();
+        resetInterval();
+      }
+      if (touchEndX > touchStartX + swipeThreshold) {
+        prevSlide();
+        resetInterval();
+      }
+    }
+  }
+
 
   // ---------- MODAL ----------
   function openModal(name, price) {
@@ -194,14 +294,6 @@
     document.body.style.overflow = '';
   }
 
-  // ---------- HAMBURGER DARK MODE (after hero) ----------
-  function initHamburgerDark() {
-    if (!heroSection || !hamburger) return;
-    window.addEventListener('scroll', function () {
-      var heroBottom = heroSection.getBoundingClientRect().bottom;
-      hamburger.classList.toggle('dark', heroBottom < 60);
-    }, { passive: true });
-  }
 
   function copyPixKey() {
     navigator.clipboard.writeText(PIX_KEY).then(function () {

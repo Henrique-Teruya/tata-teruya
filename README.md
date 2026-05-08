@@ -1,137 +1,88 @@
-# 🧶 Loja de Bolsas de Crochê
+# 🧶 Tatá Teruya — Bolsas de Crochê Artesanais
 
-Site simples de e-commerce **100% front-end** para venda de bolsas artesanais, com pagamento via **Pix (QR Code)**.
+Site de e-commerce **100% front-end** para venda de bolsas artesanais de crochê, com pagamento via **Pix** e experiência editorial premium.
 
 ---
 
 ## 📌 Sobre o projeto
 
-Este projeto foi desenvolvido com o objetivo de criar uma loja online simples, leve e funcional, sem necessidade de backend.
+Loja online leve e elegante para a marca Tatá Teruya. Sem backend, sem frameworks — apenas HTML, CSS e JavaScript puro.
 
-A venda é feita diretamente via **Pix**, e a confirmação do pagamento ocorre manualmente via WhatsApp.
-
----
-
-## 🚀 Tecnologias utilizadas
-
-- HTML5  
-- CSS3  
-- JavaScript (Vanilla)
+- **Landing page** editorial com vídeo hero, lookbook carousel e bloco de mídia
+- **Shop SPA** com grid de produtos, página de detalhe e fluxo de pagamento Pix
+- **Responsivo** e otimizado para mobile
 
 ---
 
-## 🛒 Funcionalidades
+## 🚀 Tecnologias
 
-- Exibição de produtos (bolsas de crochê)
-- Modal com informações de pagamento
-- Pagamento via QR Code Pix
-- Exibição da chave Pix
-- Interface simples e responsiva
+- HTML5
+- CSS3 (design system com CSS variables)
+- JavaScript (Vanilla — zero dependências)
 
 ---
 
-## 💳 Como funciona o pagamento
-
-1. O usuário escolhe um produto  
-2. Clica em **"Pagar com Pix"**  
-3. Um QR Code é exibido na tela  
-4. O pagamento é realizado via app do banco  
-5. O cliente envia o comprovante via WhatsApp  
-
----
-
-## 📂 Estrutura do projeto
+## 📂 Estrutura
 
 ```
-
-/site
-├── index.html
-├── style.css
-├── script.js
-└── /img
-├── bolsa1.jpg
-└── qrcode-pix.png
-
-````
-
----
-
-## ⚙️ Como rodar o projeto
-
-1. Clone o repositório:
-```bash
-git clone https://github.com/seu-usuario/seu-repo.git
-````
-
-2. Acesse a pasta:
-
-```bash
-cd seu-repo
-```
-
-3. Abra o arquivo:
-
-```bash
-index.html
+tata-teruya/
+├── index.html       # Landing page editorial
+├── produtos.html    # Shop SPA (grid → produto → pagamento)
+├── style.css        # Design system + todos os estilos
+├── script.js        # Lógica base (drawer, WhatsApp, carousel)
+├── shop.js          # Controlador SPA (routing, galeria, pagamento)
+├── data/
+│   ├── images/      # Fotos dos produtos
+│   └── videos/      # Vídeo editorial
+├── DESIGN.md        # Tokens de design
+└── CONTEXT.md       # Histórico e contexto do projeto
 ```
 
 ---
 
-## ✏️ Personalização
+## 🛒 Fluxo de compra
 
-Para adaptar o projeto:
-
-* Troque as imagens em `/img`
-* Edite os produtos no `index.html`
-* Atualize:
-
-  * Nome dos produtos
-  * Preços
-  * Chave Pix
-  * QR Code (`qrcode-pix.png`)
+1. Usuário navega pelos produtos no **Shop**
+2. Clica em um produto → abre a **página de detalhe** com galeria de fotos, descrição e medidas
+3. Clica em **"Comprar"** → abre a **página de pagamento** com QR Code Pix
+4. Copia a chave Pix ou escaneia o QR Code
+5. Clica em **"Já paguei"** → confirmação visual
+6. Envia comprovante via **WhatsApp**
 
 ---
 
-## ⚠️ Observações importantes
+## ⚙️ Personalização
 
-* Este projeto **não possui backend**
-* Não há:
+Edite as constantes no topo de `script.js` e `shop.js`:
 
-  * Controle de estoque
-  * Registro automático de pedidos
-* Toda a comunicação com o cliente deve ser feita externamente (ex: WhatsApp)
+```js
+const PIX_KEY = 'sua-chave-pix@email.com';
+const WHATSAPP_NUMBER = '5511998387082';
+```
+
+Para adicionar/editar produtos, edite o array `PRODUCTS` em `shop.js` com nome, preço, descrição, medidas e imagens.
 
 ---
 
-## 💡 Melhorias futuras
+## 📱 Responsividade
 
-* Integração com WhatsApp automático
-* Carrinho de compras com `localStorage`
-* QR Code dinâmico por valor
-* Integração com API de pagamento
-* Painel administrativo
+| Breakpoint | Produtos | Layout |
+|-----------|----------|--------|
+| < 600px | 2 colunas | Mobile, galeria empilhada |
+| ≥ 600px | 2 colunas | Tablet, galeria quadrada |
+| ≥ 960px | 3 colunas | Desktop, PDP lado a lado com galeria sticky |
 
 ---
 
 ## 🌐 Deploy
 
-Você pode hospedar gratuitamente em:
-
-* GitHub Pages
-* Netlify
-* Vercel
-
----
-
-## 📞 Contato
-
-Após o pagamento, o cliente deve enviar o comprovante para o WhatsApp do vendedor.
+Hospede gratuitamente em:
+- GitHub Pages
+- Netlify
+- Vercel
 
 ---
 
 ## 📄 Licença
 
 Este projeto é de uso livre para fins de estudo e projetos pessoais.
-
-```
-```

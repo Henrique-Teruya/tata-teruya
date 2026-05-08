@@ -13,20 +13,13 @@
 
 <body>
 
-  <!-- ========== HAMBURGER BUTTON ========== -->
-  <button class="hamburger" id="hamburger" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav-drawer">
-    <span class="hamburger-bar"></span>
-    <span class="hamburger-bar"></span>
-    <span class="hamburger-bar"></span>
-  </button>
-
   <!-- ========== NAV DRAWER ========== -->
   <div class="nav-drawer-overlay" id="nav-drawer-overlay" aria-hidden="true"></div>
   <nav class="nav-drawer" id="nav-drawer" role="dialog" aria-label="Menu de navegação" aria-modal="true"
     aria-hidden="true">
     <div class="nav-drawer-header">
       <span class="nav-drawer-logo">🧶 Tatá Teruya</span>
-      <button class="nav-drawer-close" id="nav-drawer-close" aria-label="Fechar menu">&times;</button>
+      <button class="nav-drawer-close close-btn" id="nav-drawer-close" aria-label="Fechar menu">&times;</button>
     </div>
     <ul class="nav-drawer-links">
       <li><a href="#inicio" class="nav-drawer-link" data-section="inicio">Início</a></li>
@@ -43,21 +36,19 @@
     </a>
   </nav>
 
-  <!-- ========== MOBILE HEADER ========== -->
+  <!-- ========== SITE HEADER ========== -->
   <header class="site-header" id="site-header">
     <div class="container header-inner">
-      <a href="#inicio" class="logo">
+      <a href="#inicio" class="header-logo" id="header-logo">
         <span class="logo-icon">🧶</span>
-        <div>
-          <div class="logo-text">Tatá Teruya</div>
-        </div>
+        <span class="logo-text">Tatá Teruya</span>
       </a>
-      <nav>
-        <ul class="nav-links">
-          <li><a href="produtos.html">Produtos</a></li>
-          <li><a href="#contato">Contato</a></li>
-        </ul>
-      </nav>
+      
+      <button class="hamburger" id="hamburger" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav-drawer">
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+      </button>
     </div>
   </header>
 
@@ -76,9 +67,9 @@
         <span class="hero-brand-name">Tatá Teruya</span>
         <span class="hero-brand-line" aria-hidden="true"></span>
       </div>
-      <span class="hero-eyebrow">Feito à mão — peça por peça</span>
+      <span class="hero-eyebrow">atelier</span>
       <h1 class="hero-title">A arte do<br><em>crochê</em> em cada detalhe</h1>
-      <button class="btn-cta" id="btn-cta" aria-label="Ver coleção de bolsas">
+      <button class="btn btn-cta" id="btn-cta" aria-label="Ver coleção de bolsas">
         Ver coleção
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
           stroke-linecap="round" stroke-linejoin="round">
@@ -86,44 +77,61 @@
         </svg>
       </button>
     </div>
-    <div class="hero-scroll-hint" aria-hidden="true">
-      <span></span>
-    </div>
   </section>
 
   <!-- ========== LOOKBOOK — Editorial Section ========== -->
   <section class="lookbook" id="lookbook">
-    <div class="lookbook-header reveal-on-scroll">
-      <span class="lookbook-label">Coleção 2026</span>
-      <h2 class="lookbook-title">Bolsas de<br>crochê <em>premium</em></h2>
+    <div class="section-title-group reveal-on-scroll">
+      <span class="section-label">Coleção 2026</span>
+      <h2 class="section-title">Bolsas de<br>crochê <em>artesanais</em></h2>
     </div>
 
     <div class="lookbook-grid">
-      <a href="produtos.html" class="lookbook-item lookbook-item--wide reveal-on-scroll" aria-label="Ver produtos">
-        <div class="lookbook-img-wrap">
-          <img src="data/vermelhalanding.png" alt="Bolsa Amor Tatá Teruya — Destaque da coleção" loading="lazy">
+      <div class="lookbook-item lookbook-item--wide lookbook-carousel reveal-on-scroll">
+        <div class="lookbook-carousel-wrapper">
+          <button class="carousel-prev" aria-label="Anterior">&lsaquo;</button>
+          <div class="carousel-container">
+            <div class="carousel-track">
+              <a href="produtos.html" class="carousel-slide" aria-label="Ver produto: Bolsa Azul">
+                <img src="data/images/azulprincipal.jpeg" alt="Bolsa Azul Tatá Teruya" loading="lazy">
+              </a>
+              <a href="produtos.html" class="carousel-slide" aria-label="Ver produto: Bolsa Carta">
+                <img src="data/images/cartaprincipal.jpeg" alt="Bolsa Carta Tatá Teruya" loading="lazy">
+              </a>
+              <a href="produtos.html" class="carousel-slide" aria-label="Ver produto: Bolsa Vermelha">
+                <img src="data/images/vermelhaprincipal.png" alt="Bolsa Vermelha Tatá Teruya" loading="lazy">
+              </a>
+              <a href="produtos.html" class="carousel-slide" aria-label="Ver produto: Detalhe Alça">
+                <img src="data/images/texturaalca.jpeg" alt="Detalhe Alça Tatá Teruya" loading="lazy">
+              </a>
+            </div>
+            <!-- Indicadores -->
+            <div class="carousel-dots"></div>
+            <div class="lookbook-caption">
+              <span class="lookbook-caption-tag">Destaque</span>
+              <span class="lookbook-caption-text">Coleção Completa</span>
+            </div>
+          </div>
+          <button class="carousel-next" aria-label="Próximo">&rsaquo;</button>
         </div>
-        <div class="lookbook-caption">
-          <span class="lookbook-caption-tag">Destaque</span>
-          <span class="lookbook-caption-text">Amor</span>
-        </div>
-      </a>
-      <a href="produtos.html" class="lookbook-item reveal-on-scroll" aria-label="Ver produtos">
-        <div class="lookbook-img-wrap">
-          <img src="data/azulprincipal.png" alt="Bolsa Aura Tatá Teruya" loading="lazy">
-        </div>
-        <div class="lookbook-caption">
-          <span class="lookbook-caption-text">Aura</span>
-        </div>
-      </a>
-      <a href="produtos.html" class="lookbook-item reveal-on-scroll" aria-label="Ver produtos">
-        <div class="lookbook-img-wrap">
-          <img src="data/principalcarta.png" alt="Bolsa Carta Tatá Teruya" loading="lazy">
-        </div>
-        <div class="lookbook-caption">
-          <span class="lookbook-caption-text">Bolsas limitadas</span>
-        </div>
-      </a>
+      </div>
+    </div>
+    <!-- Bloco Editorial Full-Bleed (Raw) -->
+    <div class="raw-media-header reveal-on-scroll">
+      <h2 class="raw-media-title">Textura <span class="raw-media-subtitle">Edição Limitada</span></h2>
+    </div>
+    <div class="raw-media-container">
+      <div class="raw-media-item reveal-on-scroll">
+        <video autoplay muted loop playsinline>
+          <source src="data/videos/Crochet_bag_with_floating_yarn_202605081014.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="raw-media-item reveal-on-scroll">
+        <img src="data/images/texturaberta.png" alt="Textura Tatá Teruya" loading="lazy">
+      </div>
+    </div>
+    <div class="raw-media-footer reveal-on-scroll">
+      <p class="raw-media-caption">Feito à mão, com propósito</p>
     </div>
 
     <div class="lookbook-quote reveal-on-scroll">
@@ -131,7 +139,7 @@
         "Presença marcante, sem perder a delicadeza."
       </blockquote>
       <div class="lookbook-cta">
-        <a href="produtos.html" class="btn-secondary" aria-label="Ver todos os produtos">
+        <a href="produtos.html" class="btn btn-secondary" aria-label="Ver todos os produtos">
           Ver coleção completa
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
             stroke-linecap="round" stroke-linejoin="round">

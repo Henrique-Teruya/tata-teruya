@@ -11,6 +11,7 @@ Loja de e-commerce 100% front-end (sem backend) para venda de **bolsas artesanai
 - Pagamento via **Pix** (QR Code + chave copiável)
 - Confirmação de pedido via **WhatsApp**
 - Sem frameworks (HTML + CSS + Vanilla JS puro)
+- Experiência SPA-like na página de produtos
 
 ---
 
@@ -18,17 +19,16 @@ Loja de e-commerce 100% front-end (sem backend) para venda de **bolsas artesanai
 
 ```
 tata-teruya/
-├── index.html       # Estrutura completa da página
+├── index.html       # Landing page editorial (hero + lookbook + carousel)
+├── produtos.html    # Shop SPA (grid → produto → pagamento)
 ├── style.css        # Design system + todos os estilos
-├── script.js        # Lógica de interação
-├── DESIGN.md        # Tokens de design (cores, tipografia, espaçamento)
+├── script.js        # Lógica base (drawer, WhatsApp, carousel, scroll reveal)
+├── shop.js          # Controlador SPA da loja (routing, galeria, pagamento)
+├── DESIGN.md        # Tokens de design
 ├── CONTEXT.md       # Este arquivo
-└── img/
-    ├── bolsa1.jpg   # Foto do produto 1 (Floral Rosé)
-    ├── bolsa2.jpg   # Foto do produto 2 (Boho Natural)
-    ├── bolsa3.jpg   # Foto do produto 3 (Lavanda)
-    ├── bolsa4.jpg   # Foto do produto 4 (Verde Sálvia)
-    └── qrcode-pix.png  # QR Code do Pix
+└── data/
+    ├── images/      # Fotos dos produtos (principal, aberta, alça, embaixo)
+    └── videos/      # Vídeo editorial da landing page
 ```
 
 ---
@@ -41,14 +41,9 @@ tata-teruya/
 **Entregues:**
 - `index.html` com header, seção de produtos (4 cards), modal Pix, footer
 - `style.css` com design system completo (CSS variables, 8px spacing system, paleta quente)
-- `script.js` com modal dinâmico (nome + preço do produto), cópia da chave Pix, toast de confirmação, WhatsApp via `data-whatsapp`
+- `script.js` com modal dinâmico, cópia da chave Pix, toast, WhatsApp via `data-whatsapp`
 - Fontes: **Inter** (corpo) + **Playfair Display** (títulos)
 - Paleta: tons terrosos/caramelo (`#C4956A`, `#FAF7F4`, `#3D2E24`)
-- Botão de WhatsApp flutuante com animação de pulso
-
-**Decisões tomadas:**
-- Imagens dos produtos usam `img/bolsa1.jpg` etc. → o usuário possui as fotos reais
-- Chave Pix e número do WhatsApp ficam no topo do `script.js` como constantes para fácil customização
 
 ---
 
@@ -56,27 +51,46 @@ tata-teruya/
 **Objetivo:** Transformar a loja em uma experiência visual premium inspirada na Farm Rio.
 
 **Entregues:**
-- **Hero full-screen** com vídeo de fundo (CloudFront CDN), overlay escuro, headline em Playfair, botão CTA glassmorphism
-- **Seção Lookbook** editorial: grid de 3 imagens clicáveis que rolam para os produtos
-- **Sidebar de navegação** fixa (desktop) com links verticais com `writing-mode`
+- **Hero full-screen** com vídeo de fundo, overlay escuro, headline em Playfair, botão CTA glassmorphism
+- **Seção Lookbook** editorial: carousel de imagens + bloco raw-media (vídeo + textura)
 - **Scroll reveal**: cards e seções entram com fade + slide-up via `IntersectionObserver`
-- **Header inteligente**: some quando o hero está visível (mobile), aparece ao rolar para baixo
-- `scrollToSection(id)` — função reutilizável de scroll suave
 
 ---
 
-### Fase 3 — Hamburger menu
-**Objetivo:** Substituir o sidebar fixo por um menu hamburger universal (funciona em mobile e desktop).
+### Fase 3 — Header dinâmico + Drawer
+**Objetivo:** Substituir o sidebar fixo por um header dinâmico com menu hamburger.
 
 **Entregues:**
-- Sidebar removido completamente
-- **Botão hamburger** fixo no canto superior direito (sobre o hero), com backdrop-filter
-- Animação do ícone (3 barras → X) ao abrir
-- **Nav drawer** desliza da direita com todos os links: Início, Coleção, Produtos, Contato
+- **Site Header** fixo com logo (aparece ao rolar) e hamburger
+- **Nav Drawer** lateral com links, animação de entrada, e WhatsApp CTA
 - Overlay com blur fecha o drawer ao clicar fora
-- Botão de WhatsApp no rodapé do drawer
-- Hamburger muda para tema escuro automaticamente quando o hero sai da tela
 - Tecla `Escape` fecha modal e drawer simultaneamente
+
+---
+
+### Fase 4 — Otimização e refatoração
+**Objetivo:** Limpar código redundante e criar componentes reutilizáveis.
+
+**Entregues:**
+- Classe base `.btn` para todos os botões (CTA, Pix, Secondary)
+- Classe base `.close-btn` para botões de fechar (drawer, modal)
+- Componentes `.section-title-group`, `.section-label`, `.section-title` unificados
+- Remoção de CSS não utilizado e comentários obsoletos
+- Correção de scrollbar "fantasma" no lado direito
+
+---
+
+### Fase 5 — SPA E-Commerce
+**Objetivo:** Transformar `produtos.html` em uma experiência SPA profissional.
+
+**Entregues:**
+- **View Router** com `history.pushState` e suporte ao botão voltar
+- **Shop View:** Grid de produtos renderizado via JS, breadcrumb, contador de produtos
+- **Product Detail View:** Galeria de imagens com thumbnails (click + touch swipe), informações do produto, medidas, descrição, botão comprar
+- **Payment View:** Fluxo Pix completo com QR Code, chave copiável, instrução WhatsApp, botão "Já paguei" com estado de sucesso animado
+- Transições suaves entre views (fade + slide)
+- Scroll position restaurado ao navegar entre views
+- Dados de produtos centralizados em `shop.js`
 
 ---
 
@@ -86,7 +100,6 @@ tata-teruya/
 |-------|-------|-----|
 | `--primary` | `#C4956A` | Botões, acentos, tags |
 | `--primary-dark` | `#A67B52` | Preços, hover |
-| `--pix-green` | `#32BCAD` | Botão "Pagar com Pix" |
 | `--bg` | `#FAF7F4` | Fundo da página |
 | `--bg-footer` | `#3D2E24` | Rodapé escuro |
 | `--text-primary` | `#2C1E14` | Títulos |
@@ -98,19 +111,24 @@ tata-teruya/
 
 **Espaçamento:** sistema de 8px (`xs=4, sm=8, md=16, lg=24, xl=32, 2xl=48, 3xl=64px`)
 
+**Componentes Base:**
+- `.btn` — Botão reutilizável (inline-flex, border-radius, transitions)
+- `.close-btn` — Botão circular de fechar (drawer, modal)
+- `.section-title-group` + `.section-label` + `.section-title` — Headers de seção
+- `.view` — Container de view SPA com animação de entrada/saída
+
 ---
 
 ## ⚙️ Personalização rápida
 
-Edite as constantes no topo de `script.js`:
+Edite as constantes no topo de `script.js` e `shop.js`:
 
 ```js
-const PIX_KEY = 'sua-chave-pix@email.com';  // chave Pix
-const WHATSAPP_NUMBER = '5511999999999';     // número WhatsApp (só dígitos)
-const QR_CODE_IMAGE = 'img/qrcode-pix.png'; // caminho do QR Code
+const PIX_KEY = 'sua-chave-pix@email.com';
+const WHATSAPP_NUMBER = '5511998387082';
 ```
 
-Para adicionar/editar produtos, edite os blocos `.product-card` no `index.html`.
+Para adicionar/editar produtos, edite o array `PRODUCTS` no topo de `shop.js`.
 
 ---
 
@@ -118,10 +136,10 @@ Para adicionar/editar produtos, edite os blocos `.product-card` no `index.html`.
 
 | Breakpoint | Colunas produtos | Comportamento |
 |-----------|-----------------|---------------|
-| < 600px | 1 | Mobile — header visível, hamburger branco sobre hero |
-| ≥ 600px | 2 | Tablet — lookbook 2 colunas |
-| ≥ 960px | 3 | Desktop — header some, hamburger escuro após hero |
-| ≥ 1200px | 4 | Wide |
+| < 600px | 2 | Mobile — header fixo, hamburger, galeria empilhada |
+| ≥ 600px | 2 | Tablet — lookbook 2 colunas, galeria 1:1 |
+| ≥ 960px | 3 | Desktop — PDP lado a lado, galeria sticky |
+| ≥ 1200px | 3 | Wide |
 
 ---
 

@@ -13,21 +13,13 @@
 
 <body>
 
-  <!-- ========== HAMBURGER BUTTON ========== -->
-  <button class="hamburger dark" id="hamburger" aria-label="Abrir menu" aria-expanded="false"
-    aria-controls="nav-drawer">
-    <span class="hamburger-bar"></span>
-    <span class="hamburger-bar"></span>
-    <span class="hamburger-bar"></span>
-  </button>
-
   <!-- ========== NAV DRAWER ========== -->
   <div class="nav-drawer-overlay" id="nav-drawer-overlay" aria-hidden="true"></div>
   <nav class="nav-drawer" id="nav-drawer" role="dialog" aria-label="Menu de navegação" aria-modal="true"
     aria-hidden="true">
     <div class="nav-drawer-header">
       <span class="nav-drawer-logo">🧶 Tatá Teruya</span>
-      <button class="nav-drawer-close" id="nav-drawer-close" aria-label="Fechar menu">&times;</button>
+      <button class="nav-drawer-close close-btn" id="nav-drawer-close" aria-label="Fechar menu">&times;</button>
     </div>
     <ul class="nav-drawer-links">
       <li><a href="index.html#inicio" class="nav-drawer-link" data-section="inicio">Início</a></li>
@@ -44,148 +36,59 @@
     </a>
   </nav>
 
-  <!-- ========== MOBILE HEADER ========== -->
+  <!-- ========== SITE HEADER ========== -->
   <header class="site-header scrolled" id="site-header">
     <div class="container header-inner">
-      <a href="index.html" class="logo">
+      <a href="index.html" class="header-logo" style="opacity:1;visibility:visible;transform:none;">
         <span class="logo-icon">🧶</span>
-        <div>
-          <div class="logo-text">Tatá Teruya</div>
-        </div>
+        <span class="logo-text">Tatá Teruya</span>
       </a>
-      <nav>
-        <ul class="nav-links">
-          <li><a href="produtos.html">Produtos</a></li>
-          <li><a href="#contato">Contato</a></li>
-        </ul>
-      </nav>
+      <button class="hamburger" id="hamburger" aria-label="Abrir menu" aria-expanded="false"
+        aria-controls="nav-drawer">
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+      </button>
     </div>
   </header>
 
-  <main style="padding-top: 80px;">
-    <!-- ========== PRODUCTS ========== -->
-    <section class="products-section" id="produtos">
+  <!-- ========== SPA VIEWS ========== -->
+  <main id="app-main">
+
+    <!-- VIEW: SHOP -->
+    <section class="view view--active" id="view-shop">
       <div class="container">
-        <div class="section-header reveal-on-scroll">
-          <span class="section-label">Shop</span>
-          <h2>Nossos Produtos</h2>
+        <nav class="breadcrumb" aria-label="Navegação">
+          <a href="index.html" class="breadcrumb-link">Home</a>
+          <span class="breadcrumb-sep">/</span>
+          <span class="breadcrumb-current">Produtos</span>
+        </nav>
+
+        <div class="shop-header">
+          <div class="section-title-group">
+            <span class="section-label">Shop</span>
+            <h2 class="section-title">Nossos Produtos</h2>
+          </div>
+          <p class="product-count" id="product-count"></p>
         </div>
 
-        <div class="product-grid">
-
-          <!-- Bolsa Amor -->
-          <div class="product-card reveal-on-scroll">
-            <div class="product-image-wrapper">
-              <img class="img-primary" src="data/vermelhaprincipal.png" alt="Bolsa Amor" loading="lazy">
-              <img class="img-hover" src="data/vermelhaaberta.png" alt="Bolsa Amor — vista aberta" loading="lazy"
-                aria-hidden="true">
-              <div class="product-card-overlay">
-                <button class="btn-pix" id="btn-pix-1" aria-label="Comprar Bolsa Amor">
-                  Comprar
-                </button>
-              </div>
-            </div>
-            <div class="product-info">
-              <h3 class="product-name">Bolsa Amor</h3>
-              <span class="product-price">R$ 89,90</span>
-            </div>
-          </div>
-
-          <!-- Bolsa Aura -->
-          <div class="product-card reveal-on-scroll">
-            <div class="product-image-wrapper">
-              <img class="img-primary" src="data/azulprincipal.png" alt="Bolsa Aura" loading="lazy">
-              <img class="img-hover" src="data/azulaberta.png" alt="Bolsa Aura — vista aberta" loading="lazy"
-                aria-hidden="true">
-              <div class="product-card-overlay">
-                <button class="btn-pix" id="btn-pix-2" aria-label="Comprar Bolsa Aura">
-                  Comprar
-                </button>
-              </div>
-            </div>
-            <div class="product-info">
-              <h3 class="product-name">Bolsa Aura</h3>
-              <span class="product-price">R$ 109,90</span>
-            </div>
-          </div>
-
-          <!-- Bolsa Carta -->
-          <div class="product-card reveal-on-scroll">
-            <div class="product-image-wrapper">
-              <img class="img-primary" src="data/principalcarta.png" alt="Bolsa Carta" loading="lazy">
-              <img class="img-hover" src="data/cartaaberta.png" alt="Bolsa Carta — vista aberta" loading="lazy"
-                aria-hidden="true">
-              <div class="product-card-overlay">
-                <button class="btn-pix" id="btn-pix-3" aria-label="Comprar Bolsa Carta">
-                  Comprar
-                </button>
-              </div>
-            </div>
-            <div class="product-info">
-              <h3 class="product-name">Bolsa Carta</h3>
-              <span class="product-price">R$ 129,90</span>
-            </div>
-          </div>
-
-          <!-- Bolsa Textura -->
-          <div class="product-card reveal-on-scroll">
-            <div class="product-image-wrapper">
-              <img class="img-primary" src="data/texturaprincipal.png" alt="Bolsa Textura" loading="lazy">
-              <img class="img-hover" src="data/texturaaberta.png" alt="Bolsa Textura — vista aberta" loading="lazy"
-                aria-hidden="true">
-              <div class="product-card-overlay">
-                <button class="btn-pix" id="btn-pix-4" aria-label="Comprar Bolsa Textura">
-                  Comprar
-                </button>
-              </div>
-            </div>
-            <div class="product-info">
-              <h3 class="product-name">Bolsa Textura</h3>
-              <span class="product-price">R$ 139,90</span>
-            </div>
-          </div>
-
+        <div class="product-grid" id="product-grid">
+          <!-- Rendered dynamically by shop.js -->
         </div>
       </div>
     </section>
+
+    <!-- VIEW: PRODUCT DETAIL -->
+    <section class="view" id="view-product">
+      <!-- Rendered dynamically by shop.js -->
+    </section>
+
+    <!-- VIEW: PAYMENT -->
+    <section class="view" id="view-payment">
+      <!-- Rendered dynamically by shop.js -->
+    </section>
+
   </main>
-
-  <!-- ========== PIX MODAL ========== -->
-  <div class="modal-overlay" id="pix-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-    <div class="modal">
-      <div class="modal-header">
-        <h3 id="modal-title">Pagamento via Pix</h3>
-        <button class="modal-close" id="modal-close" aria-label="Fechar modal">&times;</button>
-      </div>
-      <div class="modal-body">
-        <p class="modal-product-name" id="modal-product-name">—</p>
-        <p class="modal-product-price" id="modal-product-price">—</p>
-
-        <div class="qr-code-wrapper">
-          <img src="img/qrcode-pix.png" alt="QR Code Pix" id="qr-code-img">
-        </div>
-
-        <div class="pix-key-section">
-          <p class="pix-key-label">Chave Pix</p>
-          <div class="pix-key-row">
-            <span class="pix-key-value" id="pix-key-value">—</span>
-            <button class="btn-copy" id="btn-copy-pix" aria-label="Copiar chave Pix">
-              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
-                <rect x="9" y="9" width="13" height="13" rx="2" />
-                <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1" />
-              </svg>
-              Copiar
-            </button>
-          </div>
-        </div>
-
-        <div class="modal-instruction">
-          <strong>📲 Após o pagamento,</strong> envie o comprovante pelo
-          <a href="#" data-whatsapp>WhatsApp</a> para confirmar seu pedido.
-        </div>
-      </div>
-    </div>
-  </div>
 
   <!-- ========== FOOTER ========== -->
   <footer class="site-footer" id="contato">
@@ -233,6 +136,7 @@
   <div class="toast" id="toast" role="alert" aria-live="polite"></div>
 
   <script src="script.js"></script>
+  <script src="shop.js"></script>
 </body>
 
 </html>
