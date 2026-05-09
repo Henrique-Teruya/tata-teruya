@@ -549,17 +549,11 @@ button{font-family:inherit;cursor:pointer;border:none;outline:none}
 }
 
 @media(max-width: 37.5rem) {
+  .raw-media-header {
+    margin-top: 4rem;
+  }
   .raw-media-container {
-    flex-direction: column;
-    aspect-ratio: auto;
-  }
-  .raw-media-item {
-    flex: none;
-    width: 100%;
-  }
-  .raw-media-item video,
-  .raw-media-item img {
-    aspect-ratio: 1/1;
+    gap: var(--space-xs);
   }
 }
 
