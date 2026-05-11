@@ -555,9 +555,61 @@ button{font-family:inherit;cursor:pointer;border:none;outline:none}
 @media(max-width: 37.5rem) {
   .raw-media-header {
     margin-top: 4rem;
+    margin-bottom: var(--space-md);
   }
+  
+  .raw-media-title {
+    font-size: 2.25rem;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: var(--space-sm);
+  }
+
+  .raw-media-subtitle {
+    font-size: 0.8125rem;
+    letter-spacing: 0.1em;
+  }
+
   .raw-media-container {
-    gap: var(--space-xs);
+    aspect-ratio: auto;
+    height: 75vh; /* Sensação de preencher a tela */
+    margin-top: var(--space-lg);
+    margin-bottom: var(--space-lg);
+    gap: 0;
+  }
+  
+  .raw-media-item:nth-child(2) {
+    display: none;
+  }
+
+  .raw-media-item:nth-child(1) {
+    flex: 1;
+    height: 100%;
+  }
+
+  .raw-media-footer {
+    text-align: right; /* Mantém o alinhamento do desktop */
+    margin-top: 0.5rem;
+  }
+
+  .raw-media-caption {
+    font-size: 0.75rem;
+    letter-spacing: 0.02em;
+  }
+
+  .lookbook-caption {
+    width: 85%;
+    padding: var(--space-lg);
+  }
+
+  .lookbook-caption-tag {
+    font-size: 0.6875rem;
+    letter-spacing: 0.15em;
+  }
+
+  .lookbook-caption-text {
+    font-size: 1.5rem;
   }
 }
 
@@ -1045,8 +1097,10 @@ button{font-family:inherit;cursor:pointer;border:none;outline:none}
 .pdp-actions {
   display: flex;
   flex-direction: column;
+  align-items: center; /* Centraliza o botão */
   gap: var(--space-md);
-  margin-top: var(--space-md);
+  margin-top: var(--space-lg);
+  text-align: center;
 }
 
 .pdp-btn-buy {
@@ -1054,11 +1108,12 @@ button{font-family:inherit;cursor:pointer;border:none;outline:none}
   color: #fff;
   font-size: 0.8125rem;
   font-weight: 600;
-  padding: 1.15rem 2.5rem;
+  padding: 1.15rem 3rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;
   border-radius: var(--radius-xl);
-  width: 100%;
+  width: fit-content;
+  min-width: 20rem;
   border: 1px solid var(--text-primary);
   transition: all 0.4s var(--ease-smooth);
 }

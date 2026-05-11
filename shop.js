@@ -275,7 +275,7 @@
               '<dl class="pdp-meta-list">' + measHtml + '</dl>' +
             '</div>' +
             '<div class="pdp-actions">' +
-              '<button class="btn pdp-btn-buy" id="pdp-buy">Solicitar disponibilidade</button>' +
+              '<button class="btn pdp-btn-buy" id="pdp-buy">Tenho interesse</button>' +
               '<button class="pdp-btn-back" data-nav="shop">← Voltar aos produtos</button>' +
             '</div>' +
             '<p class="pdp-atelier-note">' +
