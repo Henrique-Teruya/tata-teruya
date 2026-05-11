@@ -1,15 +1,15 @@
-# 🧶 Tatá Teruya — Bolsas de Crochê Artesanais
+# 🧶 Tatá Teruya Atelier — Bolsas de Crochê Artesanais
 
-Site de e-commerce **100% front-end** para venda de bolsas artesanais de crochê, com pagamento via **Pix** e experiência editorial premium.
+Portfólio editorial e boutique digital para a marca Tatá Teruya. Peças artesanais exclusivas, produzidas sob demanda e sob consulta.
 
 ---
 
 ## 📌 Sobre o projeto
 
-Loja online leve e elegante para a marca Tatá Teruya. Sem backend, sem frameworks — apenas HTML, CSS e JavaScript puro.
+Loja online leve e elegante com foco em exclusividade. Sem backend, sem frameworks — apenas HTML, CSS e JavaScript puro.
 
 - **Landing page** editorial com vídeo hero, lookbook carousel e bloco de mídia
-- **Shop SPA** com grid de produtos, página de detalhe e fluxo de pagamento Pix
+- **Atelier SPA** com catálogo de produtos, página de detalhe e portal de consulta via WhatsApp
 - **Responsivo** e otimizado para mobile
 
 ---
@@ -19,6 +19,7 @@ Loja online leve e elegante para a marca Tatá Teruya. Sem backend, sem framewor
 - HTML5
 - CSS3 (design system com CSS variables)
 - JavaScript (Vanilla — zero dependências)
+- @hiseb/confetti (celebração de contato)
 
 ---
 
@@ -27,40 +28,37 @@ Loja online leve e elegante para a marca Tatá Teruya. Sem backend, sem framewor
 ```
 tata-teruya/
 ├── index.html       # Landing page editorial
-├── produtos.html    # Shop SPA (grid → produto → pagamento)
+├── produtos.html    # Atelier SPA (catálogo → produto → consulta)
 ├── style.css        # Design system + todos os estilos
-├── script.js        # Lógica base (drawer, WhatsApp, carousel)
-├── shop.js          # Controlador SPA (routing, galeria, pagamento)
+├── script.js        # Lógica base (drawer, WhatsApp geral, carousel)
+├── shop.js          # Controlador SPA (routing, galeria, consulta dinâmica)
 ├── data/
-│   ├── images/      # Fotos dos produtos
-│   └── videos/      # Vídeo editorial
+│   └── images/      # Fotos dos produtos (Ativos Premium)
 ├── DESIGN.md        # Tokens de design
 └── CONTEXT.md       # Histórico e contexto do projeto
 ```
 
 ---
 
-## 🛒 Fluxo de compra
+## 🛒 Fluxo de Consulta
 
-1. Usuário navega pelos produtos no **Shop**
-2. Clica em um produto → abre a **página de detalhe** com galeria de fotos, descrição e medidas
-3. Clica em **"Comprar"** → abre a **página de pagamento** com QR Code Pix
-4. Copia a chave Pix ou escaneia o QR Code
-5. Clica em **"Já paguei"** → confirmação visual
-6. Envia comprovante via **WhatsApp**
+1. Usuário navega pela **Coleção Artesanal**
+2. Clica em um peça → abre a **página de detalhe** com galeria de fotos, nota de atelier e medidas
+3. Clica em **"Solicitar disponibilidade"** → abre o portal de consulta
+4. Clica em **"Falar com o atelier"** → dispara mensagem dinâmica para o **WhatsApp** com o nome da peça
+5. O atelier atende de forma personalizada para fechar a encomenda
 
 ---
 
 ## ⚙️ Personalização
 
-Edite as constantes no topo de `script.js` e `shop.js`:
+Edite a constante no topo de `script.js` e `shop.js`:
 
 ```js
-const PIX_KEY = 'sua-chave-pix@email.com';
 const WHATSAPP_NUMBER = '5511998387082';
 ```
 
-Para adicionar/editar produtos, edite o array `PRODUCTS` em `shop.js` com nome, preço, descrição, medidas e imagens.
+Para adicionar/editar peças, edite o array `PRODUCTS` em `shop.js` com nome, preço, descrição, medidas e imagens.
 
 ---
 
