@@ -13,10 +13,9 @@
       price: 'R$ 260,00',
       description: 'Feita à mão em crochê vermelho vibrante, a Bolsa Amor carrega personalidade e delicadeza em cada ponto. Seu tamanho compacto é ideal para o dia a dia, cabendo o essencial com estilo.',
       measurements: [
-        ['Largura', '28 cm'],
-        ['Altura', '22 cm'],
-        ['Profundidade', '8 cm'],
-        ['Alça', '110 cm (ajustável)'],
+        ['Corpo', '32 cm x 19 cm'],
+        ['Base', '6 cm x 19 cm'],
+        ['Alça', '83 cm'],
         ['Material', 'Fio de algodão 100%'],
       ],
       images: [
@@ -32,10 +31,9 @@
       price: 'R$ 290,00',
       description: 'A Bolsa Aura é a combinação perfeita entre elegância e versatilidade. Em tom azul profundo, seu acabamento artesanal revela a textura única do crochê feito à mão.',
       measurements: [
-        ['Largura', '32 cm'],
-        ['Altura', '24 cm'],
-        ['Profundidade', '10 cm'],
-        ['Alça', '120 cm (ajustável)'],
+        ['Corpo', '27 cm x 17 cm'],
+        ['Base', '11 cm x 27 cm'],
+        ['Alça', '117 cm'],
         ['Material', 'Fio de algodão 100%'],
       ],
       images: [
@@ -50,10 +48,8 @@
       price: 'R$ 220,00',
       description: 'Inspirada no formato clássico de envelope, a Bolsa Carta é sofisticação em cada detalhe. Ideal para ocasiões especiais ou para quem quer se destacar no cotidiano.',
       measurements: [
-        ['Largura', '30 cm'],
-        ['Altura', '20 cm'],
-        ['Profundidade', '6 cm'],
-        ['Alça', '115 cm (ajustável)'],
+        ['Corpo', '26 cm x 16 cm'],
+        ['Alça', '120 cm'],
         ['Material', 'Fio de algodão 100%'],
       ],
       images: [
@@ -69,10 +65,8 @@
       price: 'R$ 410,00',
       description: 'A Bolsa Textura é uma ode ao trabalho manual. Seus pontos diferenciados criam um relevo tátil único, tornando cada peça verdadeiramente irrepetível.',
       measurements: [
-        ['Largura', '34 cm'],
-        ['Altura', '26 cm'],
-        ['Profundidade', '12 cm'],
-        ['Alça', '125 cm (ajustável)'],
+        ['Corpo', '50 cm x 28 cm'],
+        ['Base', '9 cm x 43 cm'],
         ['Material', 'Fio de algodão 100%'],
       ],
       images: [
