@@ -134,7 +134,16 @@ button{font-family:inherit;cursor:pointer;border:none;outline:none}
   transform: translateY(0) scale(0.95);
 }
 
+.logo-img {
+  width: 1.25em;
+  height: auto;
+  vertical-align: middle;
+  object-fit: contain;
+}
+
 .site-header .logo-icon { 
+  display: flex;
+  align-items: center;
   font-size: 1.5rem; 
   filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
 }
@@ -262,6 +271,9 @@ button{font-family:inherit;cursor:pointer;border:none;outline:none}
   font-size: 1.25rem;
   font-weight: 600;
   color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
 }
 
 .nav-drawer-close {
@@ -744,7 +756,7 @@ button{font-family:inherit;cursor:pointer;border:none;outline:none}
 /* ===== FOOTER ===== */
 .site-footer{background:var(--bg-footer);color:var(--text-light);padding:var(--space-2xl) 0 var(--space-lg);margin-top:var(--space-3xl)}
 .footer-inner{display:grid;grid-template-columns:1fr;gap:var(--space-xl);margin-bottom:var(--space-xl)}
-.footer-brand .logo-text{color:var(--text-light);margin-bottom:var(--space-sm)}
+.footer-brand .logo-text{color:var(--text-light);margin-bottom:var(--space-sm);display:flex;align-items:center;gap:var(--space-xs)}
 .footer-brand p{font-size:.875rem;color:rgba(245,240,235,.6);max-width:20rem;line-height:1.6}
 .footer-section h4{font-size:.8125rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:rgba(245,240,235,.5);margin-bottom:var(--space-md)}
 .footer-section ul{list-style:none;display:flex;flex-direction:column;gap:var(--space-sm)}
